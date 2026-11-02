@@ -1,0 +1,105 @@
+* { box-sizing: border-box; }
+:root { --ink: #443c37; --paper: #f6f1e7; --rose: #d88f87; --yellow: #f1dea1; --blue: #acc5ca; }
+html { scroll-behavior: smooth; }
+body { margin: 0; color: var(--ink); font-family: "DM Sans", sans-serif; background: #eee5d6; }
+body.is-open { background-color: var(--paper); background-image: radial-gradient(#9c8f7a22 0.7px, transparent 0.7px); background-size: 7px 7px; }
+.hidden { display: none !important; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
+
+.lock-screen { min-height: 100vh; display: grid; place-items: center; padding: 24px; background: radial-gradient(circle at 70% 20%, #d9a9a1 0 2px, transparent 3px), linear-gradient(135deg, #f4eee4, #eadbc7); background-size: 28px 28px, auto; transition: opacity .65s, transform .65s; }
+.lock-card { position: relative; width: min(460px, 100%); text-align: center; padding: 58px 48px 46px; background: #fffaf1; box-shadow: 0 18px 50px #6d594633, 0 0 0 1px #fff; }
+.lock-card::before { content: ""; position: absolute; inset: 10px; border: 1px dashed #cdbda5; pointer-events: none; }
+.wax-seal { position: absolute; top: -28px; left: calc(50% - 28px); width: 56px; height: 56px; display: grid; place-items: center; border-radius: 50%; color: #fff7ed; font-size: 28px; background: #b56c69; box-shadow: 0 4px 0 #914f4d, 0 8px 18px #5d403633; }
+.eyebrow { margin: 0 0 10px; color: #9a7466; font-size: 11px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; }
+.lock-card h1, .hero h2, .section-heading h3, .letter-section h3 { font-family: "Playfair Display", serif; }
+.lock-card h1 { margin: 4px 0 12px; font-size: clamp(42px, 9vw, 58px); line-height: 1; }
+.lock-copy { margin-bottom: 28px; color: #796f68; font-size: 14px; }
+#unlockForm { display: grid; gap: 12px; }
+#unlockForm input { width: 100%; border: 0; border-bottom: 1px solid #b9aa96; outline: none; padding: 14px 5px; text-align: center; color: var(--ink); background: transparent; font-family: "Caveat", cursive; font-size: 22px; }
+#unlockForm input:focus { border-color: var(--rose); }
+.unlock-button { margin-top: 10px; border: 0; padding: 15px 20px; color: white; background: var(--ink); font-family: "DM Sans", sans-serif; font-weight: 600; cursor: pointer; transition: transform .2s, background .2s; }
+.unlock-button:hover { transform: translateY(-2px); background: #b56867; }
+.unlock-button span { margin-left: 8px; }
+.lock-error { min-height: 18px; margin: 14px 0 0; color: #a15151; font-size: 12px; }
+.unlocking { opacity: 0; transform: scale(1.03); }
+.shake { animation: shake .35s; }
+@keyframes shake { 25% { transform: translateX(-7px); } 50% { transform: translateX(7px); } 75% { transform: translateX(-4px); } }
+
+.scrapbook { position: relative; overflow: hidden; }
+.hero, .memory-section, .letter-section, footer { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
+.hero { min-height: 660px; display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 5%; padding: 70px 0 55px; }
+.hero-copy { padding-left: 5%; }
+.hero h2 { max-width: 650px; margin: 10px 0 24px; font-size: clamp(50px, 7vw, 86px); line-height: .92; letter-spacing: -.035em; }
+.hero h2 em { color: var(--rose); font-family: "Caveat", cursive; font-weight: 500; }
+.intro { max-width: 470px; color: #716b66; line-height: 1.8; }
+.polaroid { position: relative; margin: 0; padding: 15px 15px 42px; background: white; box-shadow: 0 15px 35px #554d3b2b; }
+.polaroid img { width: 100%; height: 100%; display: block; object-fit: cover; filter: sepia(.08) saturate(.85); }
+.hero-photo { height: 470px; transform: rotate(3deg); }
+.hero-photo::before { content: ""; position: absolute; top: -16px; left: 35%; width: 100px; height: 28px; background: #d5c2a680; transform: rotate(-5deg); }
+.polaroid figcaption { position: absolute; bottom: 7px; width: calc(100% - 30px); text-align: center; font-family: "Caveat", cursive; font-size: 24px; }
+.doodle { position: absolute; z-index: 0; color: #b88b83; opacity: .65; font-family: Georgia, serif; }
+.doodle-1 { top: 45px; left: 3%; font-size: 48px; transform: rotate(-12deg); }
+.doodle-2 { top: 520px; right: 2%; font-size: 45px; transform: rotate(15deg); }
+
+.memory-section { padding: 90px 0; border-top: 1px solid #cfc4b3; }
+.section-heading { display: flex; align-items: center; gap: 22px; margin-bottom: 55px; }
+.section-heading > span { color: var(--rose); font-family: "Caveat"; font-size: 38px; }
+.section-heading h3 { margin: 0; font-size: clamp(38px, 5vw, 58px); }
+.notes-grid { display: grid; grid-template-columns: repeat(3, 1fr); align-items: center; gap: 35px; }
+.paper-note { position: relative; min-height: 250px; padding: 48px 38px 35px; box-shadow: 0 12px 25px #675d4920; }
+.paper-note p { margin: 0; font-family: "Caveat", cursive; font-size: 29px; line-height: 1.05; }
+.paper-note small { position: absolute; right: 22px; bottom: 18px; color: #7c7166; font-family: "Caveat"; font-size: 18px; }
+.note-pink { background: #edc7c2; }
+.note-yellow { background: #f1dea7; }
+.note-blue { background: #c8dadd; }
+.rotate-left { transform: rotate(-2deg); }
+.rotate-right { transform: rotate(2.5deg); }
+.tape { position: absolute; top: -14px; left: 32%; width: 95px; height: 28px; background: #e4d5afcc; transform: rotate(-3deg); }
+.paperclip { position: absolute; top: -28px; right: 25px; font-size: 50px; transform: rotate(20deg); }
+
+.gallery-section { padding-bottom: 120px; }
+.photo-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px; align-items: center; }
+.photo-grid .polaroid { height: 390px; }
+.photo-grid .polaroid:nth-child(2) { height: 430px; }
+.photo-one { transform: rotate(-4deg); }
+.photo-two { transform: rotate(2deg) translateY(-15px); }
+.photo-three { transform: rotate(4deg); }
+
+.letter-section { position: relative; max-width: 850px; margin-bottom: 100px; padding: 75px 100px; background: #fffaf2; box-shadow: 0 16px 45px #6559421a; transform: rotate(-.3deg); }
+.letter-section::before { content: ""; position: absolute; inset: 12px; border: 1px solid #cfc2ac; pointer-events: none; }
+.letter-section h3 { margin: 5px 0 25px; font-size: 48px; }
+.letter-section > p:not(.eyebrow):not(.signature) { max-width: 620px; color: #655f59; line-height: 2; }
+.signature { margin-top: 30px; color: var(--rose); font-family: "Caveat"; font-size: 32px; }
+.postmark { position: absolute; top: 42px; right: 55px; width: 90px; height: 90px; display: grid; place-items: center; border: 2px solid var(--rose); border-radius: 50%; color: var(--rose); text-align: center; font-size: 10px; letter-spacing: .12em; transform: rotate(10deg); }
+footer { min-height: 90px; display: flex; align-items: center; justify-content: center; gap: 30px; border-top: 1px solid #cfc4b3; color: #968c80; font-family: "Caveat"; font-size: 20px; }
+.music-toggle { position: fixed; z-index: 20; right: 22px; bottom: 22px; display: flex; align-items: center; gap: 10px; border: 0; border-radius: 30px; padding: 12px 17px; color: white; background: var(--ink); box-shadow: 0 8px 25px #3e393755; font-family: "DM Sans"; cursor: pointer; }
+.music-bars { height: 18px; display: flex; align-items: end; gap: 2px; }
+.music-bars i { width: 2px; height: 7px; background: #fff; }
+.playing .music-bars i { animation: bounce .7s infinite alternate; }
+.playing .music-bars i:nth-child(2) { animation-delay: -.3s; }
+.playing .music-bars i:nth-child(3) { animation-delay: -.5s; }
+.playing .music-bars i:nth-child(4) { animation-delay: -.2s; }
+@keyframes bounce { to { height: 17px; } }
+
+@media (max-width: 800px) {
+  .hero { grid-template-columns: 1fr; gap: 45px; padding-top: 70px; }
+  .hero-copy { padding-left: 0; }
+  .hero-photo { width: 82%; height: 430px; justify-self: center; }
+  .notes-grid, .photo-grid { grid-template-columns: 1fr; }
+  .paper-note { width: 85%; margin-inline: auto; }
+  .photo-grid .polaroid { width: 78%; justify-self: center; }
+  .letter-section { padding: 65px 55px; }
+}
+@media (max-width: 520px) {
+  .hero, .memory-section, .letter-section, footer { width: min(100% - 28px, 1120px); }
+  .hero h2 { font-size: 52px; }
+  .hero-photo { width: 92%; height: 390px; }
+  .memory-section { padding: 65px 0; }
+  .paper-note { width: 92%; }
+  .photo-grid .polaroid { width: 88%; }
+  .letter-section { width: calc(100% - 28px); padding: 55px 35px; }
+  .letter-section h3 { font-size: 40px; }
+  .postmark { top: 24px; right: 28px; width: 70px; height: 70px; }
+  .lock-card { padding-inline: 28px; }
+  footer { gap: 12px; font-size: 18px; }
+}

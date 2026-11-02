@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4ede2">
+  <title>Our Little Scrapbook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="lockScreen" class="lock-screen">
+    <div class="lock-card">
+      <div class="wax-seal">♡</div>
+      <p class="eyebrow">A private little place</p>
+      <h1>Our Scrapbook</h1>
+      <p class="lock-copy">Enter the secret word to open the pages.</p>
+      <form id="unlockForm" autocomplete="off">
+        <label for="password" class="sr-only">Password</label>
+        <input id="password" type="password" placeholder="Secret word" required>
+        <button class="unlock-button" type="submit">Open my heart <span>→</span></button>
+      </form>
+      <p id="lockError" class="lock-error" role="alert"></p>
+    </div>
+  </main>
+
+  <div id="scrapbook" class="scrapbook hidden" aria-hidden="true">
+    <div class="doodle doodle-1">✿</div>
+    <div class="doodle doodle-2">♡</div>
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">for you, always</p>
+        <h2>Our story, one<br><em>little moment</em> at a time.</h2>
+        <p class="intro">A collection of favourite days, quiet words, and memories I never want to lose.</p>
+      </div>
+      <figure class="polaroid hero-photo">
+        <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=85" alt="Couple sharing a quiet moment">
+        <figcaption>the beginning ✨</figcaption>
+      </figure>
+    </header>
+
+    <section class="memory-section">
+      <div class="section-heading">
+        <span>01</span>
+        <div><p class="eyebrow">the little things</p><h3>Notes I keep</h3></div>
+      </div>
+      <div class="notes-grid">
+        <article class="paper-note note-pink rotate-left">
+          <span class="tape"></span>
+          <p>“My favourite place is still right beside you.”</p>
+          <small>always.</small>
+        </article>
+        <article class="paper-note note-yellow rotate-right">
+          <span class="paperclip">⌕</span>
+          <p>Thank you for making ordinary days feel like adventures.</p>
+          <small>Tuesday, 4:32 pm</small>
+        </article>
+        <article class="paper-note note-blue">
+          <span class="tape"></span>
+          <p>Remember this: you are loved more than these pages could ever say.</p>
+          <small>xoxo</small>
+        </article>
+      </div>
+    </section>
+
+    <section class="memory-section gallery-section">
+      <div class="section-heading">
+        <span>02</span>
+        <div><p class="eyebrow">memories</p><h3>Our favourite frames</h3></div>
+      </div>
+      <div class="photo-grid">
+        <figure class="polaroid photo-one">
+          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=700&q=85" alt="A couple outdoors">
+          <figcaption>golden hour</figcaption>
+        </figure>
+        <figure class="polaroid photo-two">
+          <img src="https://images.unsplash.com/photo-1485217988980-11786ced9454?auto=format&fit=crop&w=700&q=85" alt="Friends laughing together">
+          <figcaption>laughing until it hurt</figcaption>
+        </figure>
+        <figure class="polaroid photo-three">
+          <img src="https://images.unsplash.com/photo-1507501336603-6e31db2be093?auto=format&fit=crop&w=700&q=85" alt="Sunlit countryside">
+          <figcaption>our next adventure</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="letter-section">
+      <span class="postmark">SEALED<br>WITH LOVE</span>
+      <p class="eyebrow">one last thing</p>
+      <h3>Dear you,</h3>
+      <p>I hope you know how much you mean to me. Every memory here is a tiny piece of why I smile when I think of us. Here’s to all the blank pages still waiting for us.</p>
+      <p class="signature">with all my heart</p>
+    </section>
+
+    <footer><span>made with love</span><span>♡</span><span>kept forever</span></footer>
+  </div>
+
+  <button id="musicToggle" class="music-toggle hidden" aria-label="Toggle background music" title="Toggle music">
+    <span class="music-bars"><i></i><i></i><i></i><i></i></span>
+    <span id="musicLabel">Play music</span>
+  </button>
+  <audio id="backgroundMusic" loop preload="auto">
+    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
